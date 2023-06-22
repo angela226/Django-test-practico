@@ -1,7 +1,9 @@
-class PaginadorJurisprudencia:
-    def __init__(self, totalitems, totalpages, currentpage, jurisprudencias):
-        self.totalitems = totalitems
-        self.totalpages = totalpages
-        self.currentpage = currentpage
-        self.jurisprudencias = jurisprudencias
+from django.db import models
+from jurisprudencia import Jurisprudencia
+
+class PaginadorJurisprudencia(models.Model):
+    totalitems = models.TextField()
+    totalpages = models.TextField()
+    currentpage = models.TextField()
+    jurisprudencias = models.ManyToManyField(Jurisprudencia)
 
